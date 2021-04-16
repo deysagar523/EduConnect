@@ -546,6 +546,9 @@ footer a {
   padding: 0;
   margin: auto;
 }
+.devcon{
+  color: black;
+}
 .fa-heart{
   color: #ff4040;
   font-size: 1.2rem;
