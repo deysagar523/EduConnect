@@ -293,7 +293,7 @@ body{
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 5rem;
+  margin-bottom: 1.2rem;
 }
 .login_body{
   font-size: 1.5rem;
@@ -310,6 +310,11 @@ body{
 
 }
 .login_button{
+  margin-bottom: 2rem;
+}
+.privacy{
+  text-align: center;
+  font-size: large;
   margin-bottom: 2rem;
 }
 .first_col{
