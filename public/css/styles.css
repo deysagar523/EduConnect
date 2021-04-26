@@ -1,0 +1,684 @@
+/* nav bar start */
+.navbar{
+  margin: auto;
+  background-color: #d7dbe1;
+}
+.signin{
+  margin-right: .5rem;
+}
+.signup:hover{
+  background-color: #4d79ff;
+}
+.signin:hover{
+  background-color: #4d79ff;
+}
+
+.image{
+  text-align: center;
+}
+.navbar-brand{
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+.fa-home{
+  font-size: 1.2rem;
+}
+.fa-home:hover{
+  color: #3232ff;
+}
+/* nav bar end */
+
+/* body start */
+
+/* home body start */
+
+body{
+  background-color: white;
+  width: 100%;
+  margin: auto;
+}
+.photo-carousal{
+  margin: auto;
+}
+
+.carousal-image{
+  height: 30em;
+  width: 20rem;
+  margin: auto;
+}
+
+.heading1-and-5{
+  font-family: 'Barlow', sans-serif;
+  color: #4B39B5;
+  margin: auto;
+}
+
+.carousalcolour{
+  background-color: #fdd8d8;
+  margin: auto;
+}
+
+.carousel-indicators{
+  margin: auto;
+}
+
+.paragraph{
+  font-family: sans-serif;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  margin: auto;
+}
+.Home-heading{
+  padding-top: 2rem;
+  margin: auto;
+  text-align: center;
+}
+.school-description-heading{
+  text-align: center;
+  padding-bottom: 2rem;
+}
+.school-description-quote{
+  font-family: 'Merriweather', serif;
+}
+.school-description-speaker{
+  color: #0000ff;
+}
+.school-description{
+  margin: auto;
+}
+.school-description-caption{
+  padding-bottom: 2.5rem;
+  text-align: center;
+}
+/* School overview buttons start */
+.bottom-left {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: #4B39B5;
+  max-width: 100%;
+  margin: auto;
+}
+/* School overview buttons end */
+
+/* School overview start */
+.overview-background-color{
+  background-color: #00ffff;
+}
+.overview{
+  margin: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.overview-image{
+  padding-bottom: 2rem;
+  margin: auto;
+}
+/* School overview  end */
+.image-width {
+    max-width:100%;
+    display: block;
+    margin: auto;
+}
+
+/* Our facilities start */
+.facility-background-color{
+  background-color: #e5e5e5;
+}
+.facilities{
+  margin: auto;
+}
+.facility{
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: auto;
+}
+.facility-card{
+  margin: auto;
+  padding-bottom: 2rem;
+  margin-top: 0rem;
+}
+
+.facility-image{
+  width: 100%;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  margin-bottom: 1rem;
+}
+
+.card-body-facility{
+  background-color: #FFECF1;
+}
+.card-title{
+  text-align: center;
+  margin: auto;
+}
+.card-text{
+  text-align: center;
+  padding-top: 1rem;
+}
+/* Our facilities end */
+
+/* Passout students start */
+.passout-background-color{
+  background-color: white;
+}
+.passout{
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+}
+.owl-carousel{
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.owl-image{
+  padding-bottom: 1rem;
+  background-color: #FDEDBF;
+  border-radius: 100%;
+}
+.owl-title{
+  text-align: center;
+  color: #ACA18C;
+}
+.owl{
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 85%;
+}
+
+.passout-title{
+  padding-top: 1rem;
+  margin: auto;
+  max-width: 100%;
+}
+/* Passout students end*/
+
+/* photo gallery start */
+.photo-background-color{
+  background-color: #FFE4E1;
+}
+.photo-heading{
+  padding-bottom: 2rem;
+}
+.photo-gallery{
+  position: relative;
+  column-count: 4;
+  padding: 20px;
+  padding-bottom: 1rem;
+}
+.photo{
+  display: inline-block;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.gallery-image{
+  width: 100%;
+  transition: 0.25s ease-in-out;
+}
+.photo:hover img{
+  transform: scale(1.1);
+}
+/* photo gallery end */
+
+/* reviews start */
+.reviews-ratings{
+  background-color: #BAF78C;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+.review-heading{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  color: white;
+}
+.heading3{
+  color: blue;
+}
+.review-card{
+  background-color: #fef2f2;
+  width: 65%;
+  margin: auto;
+}
+.review-image{
+  height: 10rem;
+  width: 10rem;
+  padding: 1rem 1rem;
+}
+.review-caption{
+  text-align: center;
+  margin: auto;
+}
+/* reviews end */
+
+/* home body end */
+
+
+/* login or signup start  */
+
+.login_body{
+  background-color: #fefae0;
+  margin-top: 5rem;
+}
+
+.login_header{
+  margin: 3rem;
+
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: red;
+}
+
+.icon_logo{
+  width: 15%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.login_card_header{
+  font-family: 'Train One', cursive;
+  text-align: center;
+}
+.signup_card_header{
+  font-family: 'Train One', cursive;
+  text-align: center;
+}
+.login_card{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.2rem;
+}
+.login_body{
+  font-size: 1.5rem;
+}
+.login_input{
+  margin: 1rem;
+  width: 80%;
+  height: 50px;
+
+}
+
+.login_submit{
+  text-align: center;
+
+}
+.login_button{
+  margin-bottom: 2rem;
+}
+.privacy{
+  text-align: center;
+  font-size: large;
+  margin-bottom: 2rem;
+}
+.first_col{
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.google_card{
+margin-top: 5rem;
+margin-bottom: 1rem;
+}
+.or{
+  text-align: center;
+}
+/* login or signup end */
+.afterlogin{
+  background-color: white;
+}
+.header_afterlogin{
+    margin-top: 2rem;
+}
+.afterlogin_img{
+  border-radius: 100%;
+  width: 10%;
+  margin:1px 20px 0 50px;
+  float: left;
+
+}
+.para{
+  line-height: 1.5rem;
+  text-align: center;
+}
+.afterlogin_h1{
+  text-align: center;;
+  color: red;
+}
+
+.afterlogin_1row2ndcol{
+  margin-bottom: 3rem;
+}
+hr{
+  width: 100%;
+
+}
+
+
+.nav{
+  border:2px solid black;
+  background-color: #dbf6e9;
+
+  font-size: 1.2rem;
+  margin-left: 2.5rem;
+  margin-right: 2rem;
+  border-radius: 3%;
+  margin-bottom: 5rem;
+}
+.afterlogin2row2col{
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+/* my profile  */
+.myprofile_img{
+  border-radius: 100%;
+  width: 10%;
+  margin:auto;
+
+  float: left;
+
+}
+
+.myprofile_card{
+  margin: 1.5rem;
+}
+.myprofile_cardbody{
+  text-align: left;
+}
+/* academics page */
+.academics_btn{
+  padding: 1rem 2rem 1rem 2rem;
+  margin: 2rem;
+}
+
+/* settings page */
+.settings_btn{
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+
+/* about us */
+.about_body{
+  background-color: #ffe6ff;
+}
+.about_h1{
+
+  text-align: center;
+}
+.about_div{
+ margin:2rem;
+}
+
+.about_pic{
+  width: 25%;
+  display: block;
+margin-left: auto;
+margin-right: auto;
+}
+.about_row_div{
+
+  background-color: white;
+  margin: auto;
+  margin-bottom: 1rem;
+
+  border:1px solid black;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  text-align: center;
+
+}
+
+.teacher_h1{
+  margin: 2rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* about us end */
+
+/* hironmoy syllabus start */
+
+.syllabus-body{
+  background-color: #b3ffe6;
+}
+
+.syllabus-heading{
+  text-align: center;
+  margin: auto;
+  padding-top: 2rem;
+  font-family: 'Libre Baskerville', serif;
+  color: red;
+}
+.syl-img{
+  margin: auto;
+margin-top: 3rem;
+}
+
+.syllabus{
+  text-align: center;
+  font-family: 'montserrat',serif;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+.v-x{
+  text-align: center;
+  font-family: 'montserrat',serif;
+  margin-bottom: 2rem;
+  color: #25383C;
+}
+.buttons{
+  margin: auto;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+}
+.XI{
+  text-align: center;
+  font-family: 'montserrat',serif;
+  margin-bottom: 2rem;
+}
+.XII{
+  text-align: center;
+  font-family: 'montserrat',serif;
+  margin-bottom: 2rem;
+}
+
+.button-bottom-margin{
+  margin-bottom: .5rem;
+}
+
+
+/* hironmoy syllabus end */
+
+
+/* resources start */
+
+.head-resources{
+  text-align: center;
+}
+
+/* resources end */
+
+/* contact us start */
+
+.notice{
+  text-align: center;
+  color: red;
+}
+
+/* Admin start */
+
+.admin-panel{
+  width: 100%;
+  height: 100%;
+}
+.admin-heading{
+  text-align: center;
+  color: blue;
+  margin-bottom: 2rem;
+}
+.admin{
+  padding-bottom: 2rem;
+  margin: auto;
+}
+
+.admin-pic{
+  margin: auto;
+  padding-right: 1rem;
+}
+
+.admin-name{
+  text-align: center;
+  margin: auto;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+.admin-button{
+  margin-top: 1rem;
+}
+
+.admin-notice-heading{
+  margin-bottom: 0.5rem;
+}
+
+/* Footer starts */
+
+footer {
+  background-color: #d7dbe1;
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+.fab {
+  font-size: 1.8rem;
+  margin: 1rem 0.5rem;
+}
+
+.fa-facebook {
+  color: #1873EB;
+}
+
+.fa-whatsapp-square {
+  color: #50C45F
+}
+
+
+.fa-youtube {
+  color: #F70000;
+}
+
+
+.copyright {
+  color: black;
+  font-size: 1.1rem;
+  padding: 0;
+  margin: auto;
+}
+.devcon{
+  color: black;
+}
+.fa-heart{
+  color: #ff4040;
+  font-size: 1.2rem;
+}
+
+.developer {
+  color: black;
+  padding: .5rem 1rem;
+  margin-bottom: auto;
+}
+
+/* Footer End*/
+
+/* media query start */
+
+@media screen and (max-width: 768px) {
+  .photo-gallery{
+    column-count: 3;
+  }
+  .admin{
+    margin-left: 2.5rem;
+  }
+}
+
+@media screen and (max-width:767px){
+  .nav{
+    width: 60%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .photo-gallery{
+    column-count: 2;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .photo-gallery{
+    column-count: 1;
+  }
+}
+
+@media screen and (max-width: 305px) {
+  .navbar-brand{
+    overflow: hidden;
+  }
+
+  p,h1,p1,.heading1-and-5,.paragraph,.heading3,.passout-title,.signup,.sihnin,.school-description-caption,.school-description,.owl-title,.facility,.facilities,.card,.card-footer,.text-muted,.overview,.navbar,.navbar-toggler,.owl-carousel,.shadow,.owl-title,.owl-image,.item ,.owl,footer,.fab,.fas,.devloper,.copyright{
+    overflow: hidden;
+  }
+
+  .bottom-left{
+    overflow: hidden;
+    bottom: 0px;
+    left: 0px;
+    max-width: 100%;
+    max-height: 40%;
+    position: relative;
+  }
+
+  .facility,.overview{
+    padding-left: .2rem;
+    padding-right: .2rem;
+  }
+}
+
+/* sagar media query start */
+
+@media screen and (max-width:600px){
+  .login_card{
+    width: 75%;
+  }
+}
+@media screen and (max-width:767px){
+  .nav{
+    width: 60%;
+    margin: auto;
+  }
+}
+@media screen and (min-width:992px) {
+  .teacher_h1{
+
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+}
+
+/* sagar media query end */
+
+/* media query end */

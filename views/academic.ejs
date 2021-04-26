@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Dashboard</title>
+  <!-- bootstrap cdn -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <!-- font awesome cdn -->
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+  <!-- google font cdn -->
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap" rel="stylesheet">
+
+  <!-- owl carousal css styles -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" />
+
+  <!--css styles-->
+
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+
+
+<body class="afterlogin">
+  <div class="header_afterlogin">
+    <div class="">
+      <img class="afterlogin_img" src="images/profile.jpg" alt="">
+    </div>
+    <div class="afterlogin_1row2ndcol">
+      <h1 class="afterlogin_h1">Tiljala High School</h1>
+      <p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries, </p>
+    </div>
+  </div>
+  <hr>
+
+  <div class="row">
+
+     <div class="col-lg-3 col-md-4">
+       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  <a class="nav-link "  href="dashboard.ejs"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+  <a class="nav-link " href="myprofile.ejs" ><i class="fas fa-user-circle"></i> My Profile</a>
+  <a class="nav-link active"  href="academic.ejs" ><i class="fas fa-user-graduate"></i> Academics</a>
+  <a class="nav-link" href="settings.ejs" ><i class="fas fa-cog"></i> Settings</a>
+    <a class="nav-link"  href="home.ejs"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+   </div>
+     </div>
+
+
+    <div class="col-lg-9 col-md-8 afterlogin2row2col">
+      <h1>Academics</h1>
+      <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <form class="" action="home.ejs" method="post">
+          <button type="button" class="btn btn-lg btn-info academics_btn" name="button">2021</button>
+        </form>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <form class="" action="home.ejs" method="post">
+          <button type="button" class="btn btn-lg btn-info academics_btn" name="button">2020</button>
+        </form>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <form class="" action="home.ejs" method="post">
+          <button type="button" class="btn btn-lg btn-info academics_btn" name="button">2019</button>
+        </form>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <form class="" action="home.ejs" method="post">
+          <button type="button" class="btn btn-lg btn-info academics_btn" name="button">2018</button>
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
