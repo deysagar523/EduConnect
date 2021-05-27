@@ -26,7 +26,14 @@
   color: #3232ff;
 }
 /* nav bar end */
-
+/* ALERT DIV START  */
+.alert{
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: bolder;
+}
+/* ALERT DIV END */
 /* body start */
 
 /* home body start */
@@ -324,6 +331,18 @@ body{
 .google_card{
 margin-top: 5rem;
 margin-bottom: 1rem;
+
+}
+.google_card1{
+  background-color:#DB4437;
+}
+.google-signup{
+   font-size: 1.1rem;
+   margin: 0;
+   padding: 0;
+}
+.google-login{
+    font-size: 1.5rem;
 }
 .or{
   text-align: center;

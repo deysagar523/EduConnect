@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Home</title>
+  <!-- bootstrap cdn -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <!-- font awesome cdn -->
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+  <!-- google font cdn -->
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap" rel="stylesheet">
+
+  <!-- owl carousal css styles -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" />
+
+  <!--css styles-->
+
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+  <!-- nav bar start -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-info++">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="images/school.jpeg" width="40" height="40" class="image" alt="">
+      </a>
+      <a class="navbar-brand" href="" style="color:blue"><strong>Tiljala High School</strong></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/"><i class="fas fa-home"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/syllabus">Syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutus">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/notice">Notice</a>
+          </li>
+        </ul>
+        <a href="/dashboard" class="btn btn-dark signin">My Account</a>
+
+      </div>
+    </div>
+    </div>
+  </nav>
+  <!-- nav bar end -->
+
+
+<!-- body start -->
+
+<div class="photo-carousel">
+  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel" data-pause="hover">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner carousalcolour">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="images/lost.svg" class="d-block w-100 carousal-image" alt="">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="images/authentication.svg" class="d-block w-100 carousal-image" alt="">
+      </div>
+      <div class="carousel-item">
+        <img src="images/working.svg" class="d-block w-100 carousal-image" alt="">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#fdd8d8" fill-opacity="1"
+      d="M0,160L21.8,186.7C43.6,213,87,267,131,261.3C174.5,256,218,192,262,181.3C305.5,171,349,213,393,245.3C436.4,277,480,299,524,266.7C567.3,235,611,149,655,138.7C698.2,128,742,192,785,192C829.1,192,873,128,916,112C960,96,1004,128,1047,154.7C1090.9,181,1135,203,1178,229.3C1221.8,256,1265,288,1309,288C1352.7,288,1396,256,1418,240L1440,224L1440,0L1418.2,0C1396.4,0,1353,0,1309,0C1265.5,0,1222,0,1178,0C1134.5,0,1091,0,1047,0C1003.6,0,960,0,916,0C872.7,0,829,0,785,0C741.8,0,698,0,655,0C610.9,0,567,0,524,0C480,0,436,0,393,0C349.1,0,305,0,262,0C218.2,0,175,0,131,0C87.3,0,44,0,22,0L0,0Z">
+    </path>
+  </svg>
+</div>
+
+<div>
+  <div class="school-description-heading">
+    <h1 class="heading1-and-5">SOMETHING YOU SHOULD KNOW ABOUT</h1>
+  </div>
+  <div class="row container school-description">
+    <div class="school-description-caption col-sm-6">
+      <h4 class="school-description-quote">“EDUCATION IS WHAT REMAINS AFTER ONE HAS FORGOTTEN WHAT ONE HAS LEARNED IN SCHOOL.”</h4>
+      <p4 class="school-description-speaker">- Albert Einstein</p4>
+    </div>
+    <div class="school-description-caption col-sm-6">
+      <h4 class="school-description-quote">“LET US REMEMBER: ONE BOOK, ONE PEN, ONE CHILD AND ONE TEACHER CAN CHANGE THE WORLD.”</h4>
+      <p4 class="school-description-speaker">- Malala Yousafzai</p4>
+    </div>
+    <div class="school-description-caption col-sm-6">
+      <h4 class="school-description-quote">“EDUCATION IS THE MOST POWERFUL WEAPON WHICH YOU CAN USE TO CHANGE THE WORLD.”</h4>
+      <p4 class="school-description-speaker">- Nelson Mandela</p4>
+    </div>
+    <div class="school-description-caption col-sm-6">
+      <h4 class="school-description-quote">“I'VE ALWAYS LOVED THE FIRST DAY OF SCHOOL BETTER THAN THE LAST DAY OF SCHOOL. FIRSTS ARE BEST BECAUSE THEY ARE BEGINNINGS.”</h4>
+      <p4 class="school-description-speaker">– Jenny Han</p4>
+    </div>
+  </div>
+</div>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+  <path fill="#00ffff" fill-opacity="1"
+    d="M0,32L60,26.7C120,21,240,11,360,26.7C480,43,600,85,720,85.3C840,85,960,43,1080,26.7C1200,11,1320,21,1380,26.7L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+  </path>
+</svg>
+<div class="overview-background-color">
+  <div class="Home-heading overview-heading">
+    <h1 class="heading1-and-5">SCHOOL OVERVIEW</h1>
+    <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+  </div>
+
+
+  <div class="row overview">
+    <div class="col-lg-4 col-sm-4 overview-image">
+      <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <img class="image-width" src="images/book-lovers.svg" alt="" style="width: 18rem;">
+        <a href="myprofile.ejs" class="btn btn-primary bottom-left">Student Profile</a>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-4  overview-image">
+      <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <img class="image-width" src="images/book-lovers.svg" alt="" style="width: 18rem;">
+        <a href="aboutus.ejs" class="btn btn-primary bottom-left">Teaching Staff</a>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 overview-image">
+      <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <img class="image-width" src="images/book-lovers.svg" alt="" style="width: 18rem;">
+        <a href="#" class="btn btn-primary bottom-left">School & Departments</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+  <path fill="#e5e5e5" fill-opacity="1"
+    d="M0,64L40,64C80,64,160,64,240,74.7C320,85,400,107,480,101.3C560,96,640,64,720,58.7C800,53,880,75,960,85.3C1040,96,1120,96,1200,85.3C1280,75,1360,53,1400,42.7L1440,32L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+  </path>
+</svg>
+<div class="facility-background-color">
+  <div class="Home-heading">
+    <h1 class="heading1-and-5">Our Facilities</h1>
+    <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+  </div>
+
+  <div class="facilities">
+    <div class="row facility">
+      <div class="col-lg-4 col-sm-4 facility-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+          <img class="facility-image" src="images/carousal1.jpg" alt="">
+          <div class="card-body-facility">
+            <a href="#Photos">
+              <h5 class="card-title heading1-and-5">Academic Buildings</h5>
+            </a>
+            <div class="card-text">
+              <p1 class="card-text">Use this section to talk about the characteristics of each of the listed items.</p1>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-4 facility-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+          <img class="facility-image" src="images/book-lovers.svg" alt="">
+          <div class="card-body-facility">
+            <a href="#">
+              <h5 class="card-title heading1-and-5">Student Accommodations</h5>
+            </a>
+            <div class="card-text">
+              <p1 class="card-text">Use this section to talk about the characteristics of each of the listed items.</p1>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-4 facility-card">
+        <div class="card shadow p-3 mb-5 bg-white rounded">
+          <img class="facility-image" src="images/book-lovers.svg" alt="">
+          <div class="card-body-facility facility-title">
+            <a href="resources.ejs">
+              <h5 class="card-title heading1-and-5">Resources and Recreation</h5>
+            </a>
+            <div class="card-text">
+              <p1 class="card-text">Use this section to talk about the characteristics of each of the listed items.</p1>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="passout-background-color">
+  <div class="Home-heading passout">
+    <h1 class="heading1-and-5" style="color: #ACA18C;"><u>PASSOUT STUDENTS</u></h1>
+  </div>
+  <div class="owl-carousel owl-theme">
+    <div class="item owl shadow p-3 mb-5 bg-white rounded col-lg-3 col-md-3">
+      <img class="owl-image image-width" src="images/working.svg" alt="" style="width: 60%;">
+      <div class="passout-title card">
+        <h6 class="owl-title"><strong>NAME: Nobita
+          </strong></h6>
+        <h6 class="owl-title"><strong>YEAR: 2020</strong></h6>
+        <h6 class="owl-title"><strong>SCORE: 99%</strong></h6>
+      </div>
+    </div>
+    <div class="item owl shadow-lg p-3 mb-5 bg-white rounded col-lg-3 col-md-3">
+      <img class="owl-image image-width" src="images/working.svg" alt="" style="width: 60%;">
+      <div class="passout-title card">
+        <h6 class="owl-title"><strong>NAME: Shizuka
+          </strong></h6>
+        <h6 class="owl-title"><strong>YEAR: 2020</strong></h6>
+        <h6 class="owl-title"><strong>SCORE: 98.5%</strong></h6>
+      </div>
+    </div>
+    <div class="item owl shadow p-3 mb-5 bg-white rounded col-lg-3 col-md-3">
+      <img class="owl-image image-width" src="images/working.svg" alt="" style="width: 60%;">
+      <div class="passout-title card">
+        <h6 class="owl-title"><strong>NAME: Gian
+          </strong></h6>
+        <h6 class="owl-title"><strong>YEAR: 2020</strong></h6>
+        <h6 class="owl-title"><strong>SCORE: 96%</strong></h6>
+      </div>
+    </div>
+    <div class="item owl shadow-lg p-3 mb-5 bg-white rounded col-lg-3 col-md-3">
+      <img class="owl-image image-width" src="images/working.svg" alt="" style="width: 60%;">
+      <div class="passout-title card">
+        <h6 class="owl-title"><strong>NAME: Suneo
+          </strong></h6>
+        <h6 class="owl-title"><strong>YEAR: 2020</strong></h6>
+        <h6 class="owl-title"><strong>SCORE: 92%</strong></h6>
+      </div>
+    </div>
+  </div>
+
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 140">
+    <path fill="#FFE4E1" fill-opacity="1"
+      d="M0,96L48,80C96,64,192,32,288,48C384,64,480,128,576,138.7C672,149,768,107,864,80C960,53,1056,43,1152,64C1248,85,1344,139,1392,165.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+    </path>
+  </svg>
+  <div id="Photos" class="photo-background-color">
+    <div class="Home-heading photo-heading">
+      <h1 class="heading1-and-5">Photo Gallery</h1>
+    </div>
+
+    <div class="container photo-gallery">
+      <div class="photo">
+        <img class="gallery-image image-width" src="images/carousal3.jpg" alt="">
+      </div>
+      <div class="photo">
+        <img class="gallery-image image-width" src="images/carousal1.jpg" alt="">
+      </div>
+      <div class="photo">
+        <img class="gallery-image image-width" src="images/carousal2.jpg" alt="">
+      </div>
+      <div class="photo">
+        <img class="gallery-image image-width" src="images/carousal3.jpg" alt="">
+      </div>
+      <div class="photo">
+        <img class="gallery-image image-width" src="images/carousal1.jpg" alt="">
+      </div>
+      <div class="photo">
+        <img class="gallery-image image-width" src="images/carousal2.jpg" alt="">
+      </div>
+      <div class="photo">
+        <img class="gallery-image image-width" src="images/carousal1.jpg" alt="">
+      </div>
+      <div class="photo">
+        <img class="gallery-image image-width" src="images/carousal3.jpg" alt="">
+      </div>
+      <div class="photo">
+        <img class="gallery-image image-width" src="images/carousal2.jpg" alt="">
+      </div>
+      <div class="photo">
+        <img class="gallery-image image-width" src="images/carousal1.jpg" alt="">
+      </div>
+      <div class="photo">
+        <img class="gallery-image image-width" src="images/carousal2.jpg" alt="">
+      </div>
+      <div class="photo">
+        <img class="gallery-image image-width" src="images/carousal1.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="reviews-ratings">
+     <h1 class="review-heading"><u>Reviews & Ratings</u></h1>
+     <div class="owl-carousel owl-theme">
+       <div class="item review-card">
+          <img class="review-image rounded-circle" src="images/lost.svg" alt="">
+         <div class="review-caption">
+           <h3 class="heading3">papai</h3>
+            <p class="paragraph card">cjcjcjcjc</p>
+         </div>
+       </div>
+       <div class="item review-card">
+         <div class="review-caption">
+           <h3 class="heading3">papai</h3>
+           <p class="paragraph card">cjcjcjcjccjc</p>
+         </div>
+       </div>
+       <div class="item review-card">
+         <img class="review-image rounded-circle" src="images/authentication.svg" alt="">
+         <div class="review-caption">
+           <h3 class="heading3">papai</h3>
+           <p class="paragraph card">cjcjcjcjccjc</p>
+         </div>
+     </div>
+       <div class="item review-card">
+         <img class="review-image rounded-circle" src="images/book-lovers.svg" alt="">
+         <div class="review-caption">
+           <h3 class="heading3">papai</h3>
+           <p class="paragraph card">cjcjcjcjc</p>
+         </div>
+       </div>
+       <div class="item review-card">
+         <img class="review-image rounded-circle" src="images/working.svg" alt="">
+        <div class="review-caption">
+           <h3 class="heading3">papai</h3>
+           <p class="paragraph card">cjcjcjcjccjcf</p>
+          </div>
+       </div>
+     </div>
+   </div>
+
+   <script src="JS/index.js"></script>
+
+   <%- include('partials/footer'); -%>
