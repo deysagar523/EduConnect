@@ -422,8 +422,13 @@ hr{
   margin-top: 2rem;
 }
 
+/* change password modal pop up */
+.setPassword{
+  margin-bottom: 1rem;
+}
+/* change password modal pop up end  */
 
-/* about us */
+/* about us start*/
 .about_body{
   background-color: #ffe6ff;
 }

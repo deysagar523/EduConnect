@@ -4,11 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <title>setting</title>
   <!-- bootstrap cdn -->
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
   <!-- font awesome cdn -->
 
@@ -31,12 +32,17 @@
     crossorigin="anonymous" />
 
   <!--css styles-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="css/styles.css">
-
 </head>
 
 <body class="afterlogin">
+  <!-- Button trigger modal -->
+
   <div class="header_afterlogin">
     <div class="">
       <img class="afterlogin_img" src="images/profile.jpg" alt="">
@@ -50,32 +56,123 @@
 
   <div class="row">
 
-     <div class="col-lg-3 col-md-4">
-       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <a class="nav-link "  href="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-  <a class="nav-link " href="myprofile" ><i class="fas fa-user-circle"></i> My Profile</a>
-  <a class="nav-link "  href="academic" ><i class="fas fa-user-graduate"></i> Academics</a>
-  <a class="nav-link active" href="settings" ><i class="fas fa-cog"></i> Settings</a>
-    <a class="nav-link"  href="home1"><i class="fas fa-sign-out-alt"></i> Log Out</a>
-</div>
-     </div>
+    <div class="col-lg-3 col-md-4">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link " href="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a class="nav-link " href="myprofile"><i class="fas fa-user-circle"></i> My Profile</a>
+        <a class="nav-link " href="academic"><i class="fas fa-user-graduate"></i> Academics</a>
+        <a class="nav-link active" href="settings"><i class="fas fa-cog"></i> Settings</a>
+        <a class="nav-link" href="/"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+      </div>
+    </div>
 
 
     <div class="col-lg-9 col-md-8 afterlogin2row2col">
+      <%if(infor.length>5 && infor ==="Successfully updated the Password"){%>
+        <div class="alert alert-success" role="alert">
+          <%=infor%>
+        </div>
+
+
+    <%  }else if(infor.length>5){ %>
+      <div class="alert alert-danger" role="alert">
+        <%=infor%>
+      </div>
+  <%  }else{%>
       <h1>Settings</h1>
+  <%  }%>
+
+
       <div class="row">
         <div class="col-lg-6 col-md-6">
-          <form class="" action="home.ejs" method="post">
-              <button type="button" class="btn btn-lg btn-primary  settings_btn" name="button">Edit Profile</button>
-          </form>
+
+          <button type="button" class="btn btn-lg btn-primary  settings_btn" name="button">Edit Profile</button>
+
 
         </div>
         <div class="col-lg-6 col-md-6">
-<form class="" action="home.ejs" method="post">
-  <button type="button" class="btn btn-lg btn-success settings_btn" name="button">Change Password</button>
-</form>
+
+
+
+          <!-- Button trigger modal -->
+
+
+          <!-- Modal -->
+          <form class="" action="/settings" method="post">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Password Change</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+
+                    <input class="form-control setPassword" name="oldPassword" type="text" placeholder="Old Password" aria-label="Default input">
+
+                    <input class="form-control setPassword" name="newPassword" type="text" placeholder="New Password" aria-label="Default input">
+
+                    <input class="form-control setPassword" name="cnewPassword"type="text" placeholder="Confirm New Password" aria-label="Default input">
+
+
+
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <%  if(usercookiemail.length>0){%>
+          <button type="button" class="btn btn-lg btn-primary settings_btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Change Password
+          </button>
+          <%    }else{ %>
+          <button type="button" class="btn btn-lg btn-primary settings_btn" data-bs-toggle="modal" data-bs-target="#exampletypeModal">
+            Change Password
+          </button>
+          <%  }  %>
+
+
+          <div class="modal fade" id="exampletypeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+
+                  <div class="alert alert-warning">
+                    <strong>As you are signed in through GOOGLE you dont need to change your password .It is google verified</strong>
+                  </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
 
         </div>
       </div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
