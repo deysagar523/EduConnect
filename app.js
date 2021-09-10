@@ -39,7 +39,7 @@ app.use(passport.session());
 // ************CONNECT TO MONGODB*************//
 
 
-mongoose.connect("mongodb://localhost:27017/studentsDB",{useNewUrlParser: true,useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://admin-sagarpapai:Test-123@cluster0.a8ctg.mongodb.net/studentsDB",{useNewUrlParser: true,useUnifiedTopology: true});
 
 
 //********* SETTING UP USER SCHEMA AND MODEL********/////
