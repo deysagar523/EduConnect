@@ -38,6 +38,10 @@
 
 
 <body class="afterlogin">
+
+
+
+
   <div class="header_afterlogin">
     <div class="">
       <img class="afterlogin_img" src="images/profile.jpg" alt="">
@@ -50,17 +54,139 @@
   <hr>
   <div class="row">
 
-     <div class="col-lg-3 col-md-4">
-       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <a class="nav-link active"  href="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-  <a class="nav-link" href="myprofile" ><i class="fas fa-user-circle"></i> My Profile</a>
-  <a class="nav-link"  href="academic" ><i class="fas fa-user-graduate"></i> Academics</a>
-  <a class="nav-link" href="settings" ><i class="fas fa-cog"></i> Settings</a>
-    <a class="nav-link"  href="/"><i class="fas fa-sign-out-alt"></i> Log Out</a>
-</div>
-     </div>
+    <div class="col-lg-3 col-md-4">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" href="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a class="nav-link" href="myprofile"><i class="fas fa-user-circle"></i> My Profile</a>
+        <a class="nav-link" href="academic"><i class="fas fa-user-graduate"></i> Academics</a>
+        <a class="nav-link" href="settings"><i class="fas fa-cog"></i> Settings</a>
+        <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+      </div>
+    </div>
+
     <div class="col-lg-9 col-md-8 afterlogin2row2col">
-      <h1>Dashboard</h1>
-      <h2>Under Process</h2>
+
+      <%if(studentData){%>
+
+        <div class="alert alert-success" role="alert" >
+          <h1>You Have Already Submitted Your Details.</h1>
+          <h2>Go to Settings Page for Edit</h2>
+        </div>
+      <% } else{%>
+    
+      <div class="personal-header">
+        <h2 class=""><u>Give Your Personal Details</u></h2>
+      </div>
+      <form class="" action="/myprofile" method="post">
+        <div class="card personal-card">
+          <div class="card-header">
+            <h2 class="personal-header" style="color: green;">Student Details</h2>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="" for="">Name:</label>
+                  <input type="text" name="name" class="form-control dashboard-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="" for="">Class:</label>
+                  <input type="text" name="class" class="form-control dashboard-input" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="" for="">Roll No:</label>
+                  <input type="text" name="rollno" class="form-control dashboard-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="" for="">Section:</label>
+                  <input type="text" name="section" class="form-control dashboard-input" required>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="" for="">Blood Group:</label>
+                  <input type="text" name="blood" class="form-control dashboard-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="" for="">Address:</label>
+                  <input type="text" name="address" class="form-control dashboard-input" required>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card parents-card">
+              <div class="card-header">
+                <h2 class="personal-header">Father's Details</h2>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="" for="">Name:</label>
+                      <input type="text" name="fatherName" class="form-control dashboard-input" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="" for="">Occupation:</label>
+                      <input type="text" name="fatherOccupation" class="form-control dashboard-input" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="" for="">Mobile No:</label>
+                      <input type="text" name="fatherMobile" class="form-control dashboard-input" required>
+                    </div>
+                    <div class="form-group">
+                      <label class="" for="">Email Id(if any):</label>
+                      <input type="text" name="fatherEmail" class="form-control dashboard-input" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card parents-card">
+              <div class="card-header">
+                <h2 class="personal-header">Mother's Details</h2>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="" for="">Name:</label>
+                      <input type="text" name="motherName" class="form-control dashboard-input" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="" for="">Occupation:</label>
+                      <input type="text" name="motherOccupation" class="form-control dashboard-input" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="" for="">Mobile No:</label>
+                      <input type="text" name="motherMobile" class="form-control dashboard-input" required>
+                    </div>
+                    <div class="form-group">
+                      <label class="" for="">Email Id(if any):</label>
+                      <input type="text" name="motherEmail" class="form-control dashboard-input" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-dark personal-submit">Submit</button>
+      </form>
     </div>
   </div>
+<%}%>

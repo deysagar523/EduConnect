@@ -27,18 +27,18 @@
     <div class="card-body nav-pills">
           <a class="nav-link active" aria-current="page" href="#">Notice</a>
           <a class="nav-link" href="#">Students</a>
-          <a class="nav-link" href="#">Log Out</a>
+          <a class="nav-link" href="/admin/logout">Log Out</a>
     </div>
   </div>
 
-  <form class="admin col-lg-8 col-md-8" action="" method="post">
+  <form class="admin col-lg-8 col-md-8" action="/notice" method="post">
  <div class="mb-3">
    <label for="formGroupExampleInput" class="form-label"><h6>Notice Heading</h6></label>
-   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="heading">
+   <input type="text" class="form-control" name="noticeHeading" id="formGroupExampleInput" placeholder="heading">
  </div>
  <div class="mb-3">
    <label for="formGroupExampleInput2" class="form-label"><h6>Notice Body</h6></label>
-   <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="body">
+   <textarea cols="40" rows="5" type="text" class="form-control" name="noticeBody" id="formGroupExampleInput2" placeholder="body"></textarea>
  </div>
 
 
@@ -47,8 +47,5 @@
   </div>
   </form>
 </div>
-
-
-
 
 </body>

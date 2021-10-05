@@ -34,9 +34,52 @@
   font-weight: bolder;
 }
 /* ALERT DIV END */
+
+/*admin style starts*/
+.admin-panel{
+  width: 100%;
+  height: 100%;
+}
+.admin-heading{
+  text-align: center;
+  color: blue;
+  margin-bottom: 2rem;
+}
+.admin{
+  padding-bottom: 2rem;
+  margin: auto;
+}
+
+.admin-pic{
+  margin: auto;
+  padding-right: 1rem;
+}
+
+.admin-name{
+  text-align: center;
+  margin: auto;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+.admin-button{
+  margin-top: 1rem;
+}
+
+.admin-notice-heading{
+  margin-bottom: 0.5rem;
+}
+@media screen and (max-width: 768px) {
+  .admin{
+    margin-left: 2.5rem;
+  }
+}
+
+/*admin style ends*/
 /* body start */
 
 /* home body start */
+
+
 
 body{
   background-color: white;
@@ -266,8 +309,42 @@ body{
 /* home body end */
 
 
-/* login or signup start  */
 
+/* notice.ejs */
+
+.post-notice-background{
+  background-color:#FFFCEC;
+}
+
+.no-found-notice{
+  text-align: center;
+  font-style: italic;
+  color: blue;
+}
+
+.post-notice-heading{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.notice-card{
+  width: 35rem;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-image: linear-gradient(to bottom right,#FFBAAB,#ABFFFB);
+}
+
+.post-notice-title{
+  color: #50C45F;
+}
+
+/*notice ends*/
+
+/* login or signup start  */
+.admin_signin_body{
+  background-image: linear-gradient(to bottom right,blue, violet);
+}
 .login_body{
   background-color: #fefae0;
   margin-top: 5rem;
@@ -626,7 +703,48 @@ footer a {
 }
 
 /* Footer End*/
+/*dashboard start*/
 
+.dashboard-input{
+  margin-top: .4rem;
+  margin-bottom: .4rem;
+}
+
+.personal-header{
+  text-align: center;
+  padding-bottom: 2rem;
+  color: blue;
+}
+
+.personal-card{
+  margin: auto;
+  width: 90%;
+  margin-bottom: 2rem;
+}
+
+.parents-card{
+  width: 80%;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.personal-submit{
+  width: 5rem;
+  margin:auto;
+  margin-top: 1rem;
+  margin-left: 3.5rem;
+}
+
+.student-details{
+  text-align: center;
+}
+
+.parents-details-heading{
+  margin-bottom: 2.5rem;
+}
+
+
+/*dashboard end*/
 /* media query start */
 
 @media screen and (max-width: 768px) {

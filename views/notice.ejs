@@ -1,11 +1,36 @@
-<%- include('partials/header'); -%>
+<%- include("partials/header"); -%>
 
-  <title>Tiljala High School</title>
+<div class="post-notice-background container">
 
+<% if (!foundNotice) { %>
 
-  <div class="notice">
-      <h1>This page is under process</h1>
+  <div class="no-found-notice">
+    <h1> No notice has been found! </h1>
+
   </div>
+<% } else { %>
+ <h1 class= "text-center mt-4 post-notice-title"> <u> Notices </u> </h1>
+
+  <% foundNotice.forEach(function(posts){ %>
+    <div class="container-fluid">
 
 
-<%- include('partials/footer'); -%>
+      <div class="card notice-card">
+        <div class="card-body">
+          <h5 class="card-title post-notice-heading"><u><b> <%= posts.noticeHeading %> </b></u></h5>
+          <h6 class="card-text post-notice-body"> <%= posts.noticeBody  %> </h6>
+        </div>
+      </div>
+
+
+    </div>
+  <% }) %>
+
+<% } %>
+
+
+
+
+
+</div>
+<%- include("partials/footer"); -%>
