@@ -68,12 +68,12 @@
 
       <%if(studentData){%>
 
-        <div class="alert alert-success" role="alert" >
-          <h1>You Have Already Submitted Your Details.</h1>
-          <h2>Go to Settings Page for Edit</h2>
-        </div>
+      <div class="alert alert-success" role="alert">
+        <h1>You Have Already Submitted Your Details.</h1>
+        <h2>Go to Settings Page for Edit</h2>
+      </div>
       <% } else{%>
-    
+
       <div class="personal-header">
         <h2 class=""><u>Give Your Personal Details</u></h2>
       </div>
@@ -91,22 +91,54 @@
                 </div>
                 <div class="form-group">
                   <label class="" for="">Class:</label>
-                  <input type="text" name="class" class="form-control dashboard-input" required>
+                  <input type="number" name="class" list="class" min="1" max="12" title="Please Choose From the Valid Options" class="form-control dashboard-input" required autocomplete="off"/>
+                  <datalist id="class">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                  </datalist>
                 </div>
 
                 <div class="form-group">
                   <label class="" for="">Roll No:</label>
-                  <input type="text" name="rollno" class="form-control dashboard-input" required>
+                  <input type="number" min="1" max="50" title="Please Provide a Valid Roll No" name="rollno" class="form-control dashboard-input" required autocomplete="off">
                 </div>
                 <div class="form-group">
                   <label class="" for="">Section:</label>
-                  <input type="text" name="section" class="form-control dashboard-input" required>
+                  <input type="text" list="section" pattern="[ABC]" title="Choose From The Given Options" name="section" class="form-control dashboard-input" required autocomplete="off">
+                  <datalist id="section">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+
+                  </datalist>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="form-group">
                   <label class="" for="">Blood Group:</label>
-                  <input type="text" name="blood" class="form-control dashboard-input" required>
+                  <input type="text" name="blood" pattern="(A|B|AB|O)[+-]" title="Please Choose From The Options" list="blood" class="form-control dashboard-input" required autocomplete="off">
+                  <datalist id="blood">
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>B-</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+
+                  </datalist>
                 </div>
                 <div class="form-group">
                   <label class="" for="">Address:</label>
@@ -140,11 +172,11 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="" for="">Mobile No:</label>
-                      <input type="text" name="fatherMobile" class="form-control dashboard-input" required>
+                      <input type="text" pattern="[6789][0-9]{9}" title="This is Not a Valid Phone Number" name="fatherMobile" class="form-control dashboard-input" required>
                     </div>
                     <div class="form-group">
                       <label class="" for="">Email Id(if any):</label>
-                      <input type="text" name="fatherEmail" class="form-control dashboard-input" required>
+                      <input type="email" name="fatherEmail" class="form-control dashboard-input" >
                     </div>
                   </div>
                 </div>
@@ -173,11 +205,11 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="" for="">Mobile No:</label>
-                      <input type="text" name="motherMobile" class="form-control dashboard-input" required>
+                      <input type="text"   pattern="[6789][0-9]{9}" title="This is Not a Valid Phone Number"  name="motherMobile" class="form-control dashboard-input" required>
                     </div>
                     <div class="form-group">
                       <label class="" for="">Email Id(if any):</label>
-                      <input type="text" name="motherEmail" class="form-control dashboard-input" required>
+                      <input type="email" name="motherEmail" class="form-control dashboard-input" >
                     </div>
                   </div>
                 </div>
@@ -189,4 +221,4 @@
       </form>
     </div>
   </div>
-<%}%>
+  <%}%>

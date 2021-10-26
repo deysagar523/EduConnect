@@ -505,6 +505,22 @@ hr{
 }
 /* change password modal pop up end  */
 
+/*edit profile modal*/
+.modal-body label{
+
+  font-style: italic;
+  color: blue;
+  float: left;
+
+
+}
+
+/*edit profile modal*/
+
+
+/* settings page */
+
+
 /* about us start*/
 .about_body{
   background-color: #ffe6ff;

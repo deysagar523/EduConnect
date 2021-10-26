@@ -55,7 +55,7 @@
     noticeHeading: String,
     noticeBody: String
   });
-  const Notice =  mongoose.model("Notice",noticeSchema);
+  const Notice = mongoose.model("Notice", noticeSchema);
 
   const fatherSchema = new mongoose.Schema({
     fathername: {
@@ -193,6 +193,7 @@
           error: "This email is not registered"
         })
       }
+
       // checking the password is correct or not in the time of login
       bcrypt.compare(password, user.password, function(err, result) {
         // console.log(result);
@@ -357,14 +358,17 @@
         return res.redirect('/login')
 
       }
-
+      if (req.cookies.username) {
+        res.clearCookie('username');
+        req.logout();
+      }
       req.login(user, function(err) {
         if (err) {
           req.flash("info", "error");
           return res.redirect("/login")
         }
         res.cookie("id", user.googleId);
-          res.redirect('/dashboard');
+        res.redirect('/dashboard');
 
 
 
@@ -445,7 +449,7 @@
     res.locals.title = "Myprofile";
     if (req.isAuthenticated()) {
       async function dataFetch() {
-        if(req.cookies.username){
+        if (req.cookies.username) {
           await User.findOne({
             username: req.cookies.username
           }, function(err, founduser) {
@@ -458,7 +462,7 @@
               });
             }
           })
-        }else{
+        } else {
           await User.findOne({
             googleId: req.cookies.id
           }, function(err, founduser) {
@@ -481,16 +485,18 @@
     }
   });
 
-  app.get("/notice", function(req, res){
-  res.locals.title = "Notice";
-  Notice.find({}, function(err, foundNotice){
-    if(err){
-      console.log(err)
-    } else {
-        res.render("notice", {foundNotice: foundNotice});
-    }
-  })
-});
+  app.get("/notice", function(req, res) {
+    res.locals.title = "Notice";
+    Notice.find({}, function(err, foundNotice) {
+      if (err) {
+        console.log(err)
+      } else {
+        res.render("notice", {
+          foundNotice: foundNotice
+        });
+      }
+    })
+  });
   app.get("/resources", function(req, res) {
     res.locals.title = "Resources";
     res.render("resources");
@@ -501,13 +507,42 @@
   app.get("/settings", function(req, res) {
     res.locals.title = "Settings";
     if (req.isAuthenticated()) {
-      // console.log(information);
-      // console.log(s);
-      // console.log(req.cookies);
-      res.render("settings", {
-        usercookiemail: req.cookies.username,
-        infor: information
-      });
+      async function dataFetch() {
+        if (req.cookies.username) {
+          await User.findOne({
+            username: req.cookies.username
+          }, function(err, founduser) {
+            if (err) {
+              console.log(err);
+            } else if (founduser) {
+
+              res.render("settings", {
+                usercookiemail: req.cookies.username,
+                infor: information,
+                studentData: founduser.studentDetails
+              });
+            }
+          })
+        } else {
+          await User.findOne({
+            googleId: req.cookies.id
+          }, function(err, founduser) {
+            if (err) {
+              console.log(err);
+            } else if (founduser) {
+
+              res.render("settings", {
+                usercookiemail: null,
+                infor: information,
+                studentData: founduser.studentDetails
+              });
+            }
+          })
+        }
+
+      }
+      dataFetch();
+
     } else {
       req.flash('info', 'You are not logged in yet');
       res.redirect("/login");
@@ -521,10 +556,13 @@
   });
 
   app.get("/login", function(req, res) {
+
     res.locals.title = "Login";
     res.render("login", {
       error: req.flash("info")
     });
+
+
   });
 
 
@@ -538,10 +576,10 @@
 
   app.get("/logout", function(req, res) {
     if (req.isAuthenticated()) {
-      if(req.cookies.id)
-      res.clearCookie('id');
+      if (req.cookies.id)
+        res.clearCookie('id');
       else
-      res.clearCookie('username')
+        res.clearCookie('username')
       req.logout();
       res.redirect("/");
 
@@ -583,6 +621,18 @@
     });
   });
 
+
+  app.get("/Deletenotice",function(req, res){
+
+  Notice.find({}, function(err, deleteNotice){
+    if(err){
+      console.log(err)
+    } else {
+        res.render("Deletenotice", {deleteNotice: deleteNotice});
+    }
+  });
+});
+
   app.post("/myprofile", function(req, res) {
 
     const father = new Father({
@@ -591,17 +641,14 @@
       mobileno: req.body.fatherMobile,
       email: req.body.fatherEmail
     });
-    if(req.body.class>=1 && req.body.class<=12)
-    console.log("yes");
-    else
-    console.log("no");
+
     const mother = new Mother({
       mothername: req.body.motherName,
       occupation: req.body.motherOccupation,
       motherMobileno: req.body.motherMobile,
       motherEmail: req.body.motherEmail,
     });
-  // if(req.body.fatherMobile.length===10 && req.body.fatherEmail.includes('@')&& req.body.motherEmail.includes('@') && req.body.motherMobileno.length===10){
+    //  if (req.body.fatherMobile.length === 10 && req.body.fatherEmail.includes('@') && req.body.motherEmail.includes('@') && req.body.motherMobileno.length === 10) {
     const studentAll = new Student({
       name: req.body.name,
       class: req.body.class,
@@ -614,51 +661,53 @@
     });
 
 
-        if (req.cookies.username) {
-          User.updateOne({
-            username: req.cookies.username
-          }, {
-            studentDetails: studentAll
-          }, function(err) {
-            if (err) {
-              console.log(err);
-            } else {
-              // console.log("Updated details");
-            }
-          });
-
-        }else{
-          User.updateOne({
-            googleId: req.cookies.id
-          }, {
-            studentDetails: studentAll
-          }, function(err) {
-            if (err) {
-              console.log(err);
-            } else {
-              // console.log("Updated details");
-            }
-          });
+    if (req.cookies.username) {
+      User.updateOne({
+        username: req.cookies.username
+      }, {
+        studentDetails: studentAll
+      }, function(err) {
+        if (err) {
+          console.log(err);
+        } else {
+          // console.log("Updated details");
         }
+      });
+
+    } else {
+      User.updateOne({
+        googleId: req.cookies.id
+      }, {
+        studentDetails: studentAll
+      }, function(err) {
+        if (err) {
+          console.log(err);
+        } else {
+          // console.log("Updated details");
+        }
+      });
+    }
 
 
 
-        res.render("myprofile", {
-          studentData: studentAll
-        });
-  // }else{
-  //   console.log("err found");
-  // }
-  //
+    res.render("myprofile", {
+      studentData: studentAll
+    });
+    // } else {
+    //   res.render("dashboard", {
+    //     studentData: null
+    //   });
+    // }
+
 
 
   });
 
-  app.post("/notice",function(req,res){
+  app.post("/notice", function(req, res) {
 
     const noticeHeading = req.body.noticeHeading;
     const noticeBody = req.body.noticeBody;
-    console.log(noticeHeading,noticeBody);
+    console.log(noticeHeading, noticeBody);
     const notice = new Notice({
       noticeHeading: noticeHeading,
       noticeBody: noticeBody
@@ -702,6 +751,7 @@
 
 
   });
+
   app.post("/admin", function(req, res) {
     res.locals.title = "Notice";
     res.render("notice");
@@ -717,7 +767,7 @@
           console.log(err);
         } else if (founduser) {
           bcrypt.compare(req.body.oldPassword, founduser.password, function(err, result) {
-            console.log(result);
+            // console.log(result);
             // console.log(user.password);
             if (result === true) {
               if (req.body.newPassword.length < 3 || req.body.cnewPassword.length < 3) {
@@ -757,22 +807,186 @@
   });
 
 
+  app.post("/editprofile", function(req, res) {
+    async function editProfile() {
+      if (req.cookies.username) {
+        const user = await User.findOne({
+          username: req.cookies.username
+        }, function(err, founduser) {
+          if (err) {
+            console.log(err);
+          } else if (founduser) {
+            let fatherEmail = '';
+            let motherMobile = '';
+            let fatherMobile = '';
+            let motherEmail = '';
+            if (req.body.fatherMobile.length === 10) {
+              fatherMobile = req.body.fatherMobile;
+            }
 
+            if (req.body.motherMobile.length === 10) {
+              motherMobile = req.body.motherMobile;
+            }
+
+            if (req.body.fatherEmail.length >= 3) {
+              fatherEmail = req.body.fatherEmail;
+            }
+
+            if (req.body.motherEmail.length >= 2) {
+              motherEmail = req.body.motherEmail;
+            }
+
+            User.replaceOne({
+              username: req.cookies.username
+            }, {
+              _id: founduser._id,
+              username: founduser.username,
+              password: founduser.password,
+              studentDetails: {
+
+                _id: founduser.studentDetails._id,
+                name: founduser.studentDetails.name,
+                class: founduser.studentDetails.class,
+                roll: founduser.studentDetails.roll,
+                section: founduser.studentDetails.section,
+                bloodgroup: founduser.studentDetails.bloodgroup,
+                studentAddress: founduser.studentDetails.studentAddress,
+                fatherDetails: {
+                  _id: founduser.studentDetails.fatherDetails._id,
+                  fathername: founduser.studentDetails.fatherDetails.fathername,
+                  occupation: founduser.studentDetails.fatherDetails.occupation,
+                  mobileno: (fatherMobile.length > 0) ? fatherMobile : founduser.studentDetails.fatherDetails.mobileno,
+                  email: (fatherEmail.length > 0) ? fatherEmail : founduser.studentDetails.fatherDetails.email
+                },
+                motherDetails: {
+                  _id: founduser.studentDetails.motherDetails._id,
+                  mothername: founduser.studentDetails.motherDetails.mothername,
+                  occupation: founduser.studentDetails.motherDetails.occupation,
+                  motherMobileno: (motherMobile.length > 0) ? motherMobile : founduser.studentDetails.motherDetails.motherMobileno,
+                  motherEmail: (motherEmail.length > 0) ? motherEmail : founduser.studentDetails.motherDetails.motherEmail
+                },
+              }
+            }, function(err) {
+              if (err) {
+                console.log(err);
+              } else {
+
+              }
+            })
+            information = "Successfully Updated Your Details"
+            res.render("settings", {
+              usercookiemail: req.cookies.username,
+              infor: information,
+              studentData: founduser.studentDetails
+            })
+
+
+
+
+          }
+        })
+      } else if (req.cookies.id) {
+        const user = await User.findOne({
+          googleId: req.cookies.id
+        }, function(err, founduser) {
+          if (err) {
+            console.log(err);
+          } else if (founduser) {
+            let fatherEmail = '';
+            let motherMobile = '';
+            let fatherMobile = '';
+            let motherEmail = '';
+            if (req.body.fatherMobile.length === 10) {
+              fatherMobile = req.body.fatherMobile;
+            }
+
+            if (req.body.motherMobile.length === 10) {
+              motherMobile = req.body.motherMobile;
+            }
+
+            if (req.body.fatherEmail.length >= 3) {
+              fatherEmail = req.body.fatherEmail;
+            }
+
+            if (req.body.motherEmail.length >= 2) {
+              motherEmail = req.body.motherEmail;
+            }
+
+            User.replaceOne({
+              googleId: req.cookies.id
+            }, {
+              _id: founduser._id,
+              googleId: founduser.googleId,
+              studentDetails: {
+
+                _id: founduser.studentDetails._id,
+                name: founduser.studentDetails.name,
+                class: founduser.studentDetails.class,
+                roll: founduser.studentDetails.roll,
+                section: founduser.studentDetails.section,
+                bloodgroup: founduser.studentDetails.bloodgroup,
+                studentAddress: founduser.studentDetails.studentAddress,
+                fatherDetails: {
+                  _id: founduser.studentDetails.fatherDetails._id,
+                  fathername: founduser.studentDetails.fatherDetails.fathername,
+                  occupation: founduser.studentDetails.fatherDetails.occupation,
+                  mobileno: (fatherMobile.length > 0) ? fatherMobile : founduser.studentDetails.fatherDetails.mobileno,
+                  email: (fatherEmail.length > 0) ? fatherEmail : founduser.studentDetails.fatherDetails.email
+                },
+                motherDetails: {
+                  _id: founduser.studentDetails.motherDetails._id,
+                  mothername: founduser.studentDetails.motherDetails.mothername,
+                  occupation: founduser.studentDetails.motherDetails.occupation,
+                  motherMobileno: (motherMobile.length > 0) ? motherMobile : founduser.studentDetails.motherDetails.motherMobileno,
+                  motherEmail: (motherEmail.length > 0) ? motherEmail : founduser.studentDetails.motherDetails.motherEmail
+                },
+              }
+            }, function(err) {
+              if (err) {
+                console.log(err);
+              } else {
+
+              }
+            })
+            information = "Successfully Updated Your Details"
+            res.render("settings", {
+              usercookiemail: null,
+              infor: information,
+              studentData: founduser.studentDetails
+            })
+
+
+
+
+          }
+        })
+      }
+    }
+    editProfile();
+  })
 
 
   app.post("/signup", function(req, res) {
     let ans = 0;
 
 
+    // else
+    // {
+    //   signupProcess();
+    // }
+
+
+
 
     async function signupProcess() {
 
       try {
+
         await User.findOne({
           username: req.body.username
         }, function(err, founduser) {
           if (founduser)
-            ans = 1;
+          ans=1;
         }) //Checking the email is already present or not
         // console.log(ans);
         if (ans) {
@@ -788,6 +1002,13 @@
           req.flash("msg", "Password is not matched !Type password correctly");
           res.redirect("/signup");
         } else if (req.body.password === req.body.confirm) {
+          var g=req.body.checked;
+          // console.log(g);
+          if(g!='on')
+          {
+            req.flash("msg", "Please Confirm The Privacy and policy section");
+            return res.redirect("/signup");
+          }
 
           bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
             // Store hash in your  DB.
@@ -810,7 +1031,7 @@
       }
 
     }
-    signupProcess();
+   signupProcess();
 
   });
 
@@ -829,6 +1050,13 @@
         req.flash('info', info.error);
         return res.redirect('/login');
       }
+      if (req.cookies.id) {
+        res.clearCookie('id');
+        req.logout();
+      }
+
+
+
 
       req.logIn(user, function(err) {
         if (err) {

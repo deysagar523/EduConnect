@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
   <link rel="stylesheet" href="css/bootstrap-social.css">
   <link rel="stylesheet" href="css/styles.css">
+  <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+ </script>
 </head>
 
 
@@ -64,7 +67,7 @@
               <!-- <div class="col-lg-6"> -->
                 <div class="form-group">
                     <label class="login_label"  for="">User Name</label>
-                  <input type="email" class="form-control  login_input"   name="username">
+                  <input type="email" class="form-control  login_input"   name="username" required>
 
                 </div>
 
@@ -81,17 +84,17 @@
             <!-- </div> -->
 
             <div class="form-group">
-                <login_label class="login_label" l for="">Password</label>
-              <input type="password" class="form-control  login_input "   name="password">
+                <login_label class="login_label" l for="" >Password</label>
+              <input type="password" class="form-control  login_input "   name="password" required>
 
             </div>
             <div class="form-group">
-                <labe class="login_label" l for="">Confirm Password</label>
-              <input type="password" class="form-control  login_input " name="confirm">
+                <label for="" >Confirm Password</label>
+              <input type="password" class="form-control  login_input " name="confirm" required>
 
             </div>
             <div class="privacy">
-              <p><input type="checkbox" checked>  I Accept<a href="#" data-toggle="modal" data-target="#exampleModal"> Privacy Policy
+              <p><input type="checkbox" name="checked">  I Accept<a href="#" data-toggle="modal" data-target="#exampleModal"> Privacy Policy
             </p></a>
 
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -145,7 +148,7 @@
     </div>
   </div>
 
-
+</div>
 
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
