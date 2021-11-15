@@ -1,53 +1,125 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/styles.css" />
 
-  <title>Admin</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <!-- bootstrap cdn -->
 
-  <!-- bootstrap cdn -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-</head>
+  <body class="admin-panel container-fluid">
+    <h1 class="admin-heading">Admin</h1>
 
-<body class="admin-panel">
-
-<h1 class="admin-heading">Admin</h1>
-
-<div class="row">
-
-  <div class="card col-lg-4 col-md-4 admin-pic" style="width: 18rem;">
-    <img src="images/lost.svg" class="card-img-top" alt="adimin-head">
-    <div class="admin-name">
-      <h4>Tiljala High School</h4>
-    </div>
-    <div class="card-body nav-pills">
-
+    <div class="row">
+      <div class="card col-lg-3 col-md-3 admin-pic" style="width: 18rem">
+        <img src="images/lost.svg" class="card-img-top" alt="adimin-head" />
+        <div class="admin-name">
+          <h4>Tiljala High School</h4>
+        </div>
+        <div class="card-body nav-pills">
           <a class="nav-link active" aria-current="page" href="#">Admin</a>
-          <a class="nav-link " href="/Deletenotice">Notice</a>
-          <a class="nav-link" href="#">Students</a>
+          <a class="nav-link" href="/Deletenotice">Notice</a>
+          <div class="dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Students</a
+            >
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <form action="/studentlist" method="POST">
+                <button name="btn" value="5" type="submit" class="dropdown-item">Class V</button>
+              </form>
+              <form action="/studentlist" method="POST">
+                <button name="btn" value="6" type="submit" class="dropdown-item">Class VI</button>
+              </form>
+              <form action="/studentlist" method="POST">
+                <button name="btn" value="7" type="submit" class="dropdown-item">Class VII</button>
+              </form>
+              <form action="/studentlist" method="POST">
+                <button name="btn" value="8" type="submit" class="dropdown-item">Class VIII</button>
+              </form>
+              <form action="/studentlist" method="POST">
+                <button name="btn" value="9" type="submit" class="dropdown-item">Class IX</button>
+              </form>
+              <form action="/studentlist" method="POST">
+                <button name="btn" value="10" type="submit" class="dropdown-item">Class X</button>
+              </form>
+              <form action="/studentlist" method="POST">
+                <button name="btn" value="11" type="submit" class="dropdown-item">Class XI</button>
+              </form>
+              <form action="/studentlist" method="POST">
+                <button name="btn" value="12" type="submit" class="dropdown-item">Class XII</button>
+              </form>
+            </div>
+          </div>
           <a class="nav-link" href="/admin/logout">Log Out</a>
-    </div>
-  </div>
+        </div>
+      </div>
 
-  <form class="admin col-lg-8 col-md-8" action="/notice" method="post">
- <div class="mb-3">
-   <label for="formGroupExampleInput" class="form-label"><h6>Notice Heading</h6></label>
-   <input type="text" class="form-control" name="noticeHeading" id="formGroupExampleInput" placeholder="heading">
- </div>
- <div class="mb-3">
-   <label for="formGroupExampleInput2" class="form-label"><h6>Notice Body</h6></label>
-   <textarea cols="40" rows="5" type="text" class="form-control" name="noticeBody" id="formGroupExampleInput2" placeholder="body"></textarea>
- </div>
+      <form class="admin col-lg-8 col-md-8" action="/notice" method="post">
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label"
+                  ><h6>Notice Heading</h6></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="noticeHeading"
+                  id="formGroupExampleInput"
+                  placeholder="heading"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label"
+                  ><h6>Notice Body</h6></label
+                >
+                <textarea
+                  cols="40"
+                  rows="5"
+                  type="text"
+                  class="form-control"
+                  name="noticeBody"
+                  id="formGroupExampleInput2"
+                  placeholder="body"
+                ></textarea>
+              </div>
 
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary admin-button">
+                  Publish
+                </button>
+              </div>
+            </form>
+          </div>
+        </body>
 
- <div class="col-12">
-    <button type="submit" class="btn btn-primary admin-button">Publish</button>
-  </div>
-  </form>
-</div>
-
-</body>
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"
+        ></script>
+      </html>

@@ -597,8 +597,8 @@
       req.logout();
       res.redirect("/");
     } else {
-      req.flash('info', 'You are not logged in yet!');
-      res.redirect("/admin_signin.ejs");
+      req.flash('inf', 'You are not logged in yet!');
+      res.redirect("/admin_signin");
     }
   });
 
@@ -606,9 +606,13 @@
   app.get("/admin", function(req, res) {
 
 
+    if (req.cookies.adminusername) {
+      res.render("admin");
+    } else {
+      req.flash('inf', 'You are not logged in yet');
+      res.redirect("/admin_signin");
+    }
 
-    req.flash('inf', 'You are not logged in yet');
-    res.redirect("/admin_signin");
 
   });
 
@@ -616,22 +620,30 @@
 
   app.get("/admin_signin", function(req, res) {
     // res.locals.title = "About Us";
+
     res.render("admin_signin", {
       error: req.flash("inf")
     });
   });
 
 
-  app.get("/Deletenotice",function(req, res){
-
-  Notice.find({}, function(err, deleteNotice){
-    if(err){
-      console.log(err)
+  app.get("/Deletenotice", function(req, res) {
+    if (req.cookies.adminusername) {
+      Notice.find({}, function(err, deleteNotice) {
+        if (err) {
+          console.log(err)
+        } else {
+          res.render("Deletenotice", {
+            deleteNotice: deleteNotice
+          });
+        }
+      });
     } else {
-        res.render("Deletenotice", {deleteNotice: deleteNotice});
+      req.flash('inf', 'You are Not Logged In Yet');
+      res.redirect("/admin_signin");
     }
+
   });
-});
 
   app.post("/myprofile", function(req, res) {
 
@@ -707,14 +719,16 @@
 
     const noticeHeading = req.body.noticeHeading;
     const noticeBody = req.body.noticeBody;
-    console.log(noticeHeading, noticeBody);
+    // console.log(noticeHeading, noticeBody);
     const notice = new Notice({
       noticeHeading: noticeHeading,
       noticeBody: noticeBody
     });
     notice.save();
-
-    res.redirect("/notice");
+    if (req.cookies.adminusername)
+      res.redirect("/Deletenotice");
+    else
+      res.redirect("/admin_signin");
 
   });
 
@@ -738,7 +752,8 @@
           req.flash('inf', 'Error occuured please try again!!');
           return res.redirect("/admin_signin");
         }
-        console.log("done");
+
+
         res.cookie("adminusername", admin.username);
         // u=user.username;//store the username to pass the cookie
         // s=(user.password);//store the password of the user for further change to new password
@@ -754,8 +769,21 @@
 
   app.post("/admin", function(req, res) {
     res.locals.title = "Notice";
-    res.render("notice");
+    res.render("Deletenotice");
   });
+
+  app.post("/Deletenotice", function(req, res) {
+    const delnotid = req.body.noticeid;
+    Notice.deleteOne({
+      _id: delnotid
+    }, function(err) {
+      if (err) {
+        console.log(err);
+      } else {
+        return res.redirect("/Deletenotice");
+      }
+    })
+  })
 
   // post routes
   app.post("/settings", function(req, res) {
@@ -966,6 +994,54 @@
   })
 
 
+  app.post("/studentlist", function(req, res) {
+
+
+    const key = Number(req.body.btn);
+    console.log(key);
+    const s = [];
+
+    // console.log(key);
+    async function k() {
+      await User.find({}, function(err, students) {
+        if (err) {
+          console.log(err);
+        } else {
+          function compare(a, b) {
+
+            if (a.studentDetails.roll < b.studentDetails.roll ) {
+              return -1;
+            }
+            if (a.studentDetails.roll > b.studentDetails.roll ) {
+              return 1;
+            }
+
+          }
+
+
+
+          students.forEach(function(student) {
+            if (student.studentDetails) {
+              if (student.studentDetails.class === key)
+                s.push(student);
+            }
+
+
+          });
+          s.sort(compare);
+          // console.log(s);
+        }
+      });
+
+      res.render("studentlist", {
+        students: s
+      });
+    }
+
+    k();
+  });
+
+
   app.post("/signup", function(req, res) {
     let ans = 0;
 
@@ -986,7 +1062,7 @@
           username: req.body.username
         }, function(err, founduser) {
           if (founduser)
-          ans=1;
+            ans = 1;
         }) //Checking the email is already present or not
         // console.log(ans);
         if (ans) {
@@ -1002,10 +1078,9 @@
           req.flash("msg", "Password is not matched !Type password correctly");
           res.redirect("/signup");
         } else if (req.body.password === req.body.confirm) {
-          var g=req.body.checked;
+          var g = req.body.checked;
           // console.log(g);
-          if(g!='on')
-          {
+          if (g != 'on') {
             req.flash("msg", "Please Confirm The Privacy and policy section");
             return res.redirect("/signup");
           }
@@ -1031,7 +1106,7 @@
       }
 
     }
-   signupProcess();
+    signupProcess();
 
   });
 
