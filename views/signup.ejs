@@ -20,19 +20,11 @@
 </head>
 
 
-<body class="login_body">
-
-  <img class="icon_logo" src="images/schl_logo.png" alt="schl_logo">
-
-  <h1 class="login_header">
-    Tiljala High School<br>
-    143,Picnic Garden Road,Kolkata-700039
-  </h1>
-
+<body class="login_body bg-zig-zag">
 
   <div class="card login_card">
-    <div class="card-header">
-      <h2 class="signup_card_header">Make Your Account</h2>
+    <div class="">
+      <h2 class="signup_card_header"> <b><u> Make Your Account </u></b></h2>
     </div>
     <% if(msg.length>0){%>
       <div class="alert alert-danger" role="alert" >
@@ -41,119 +33,88 @@
    <%  }  %>
     <div class="card-body row">
 
-        <div class="col-lg-7 first_col">
-            <form class="" action="/signup" method="post">
-            <!-- <div class="row">
-              <div class="col-lg-6">
-                <div class="form-group">
-                  <label  class="login_label" for="">First Name</label>
-                  <input type="text" class="form-control  login_input"    name="first_name">
+      <div class="col-lg-7 first_col">
+        <form class="" action="/signup" method="post">
 
-                </div>
-
-
-              </div>
-              <div class="col-lg-6">
-                <div class="form-group">
-                  <label  class="login_label" for="">Last Name</label>
-                  <input type="text" class="form-control  login_input"   name="last_name">
-
-                </div>
-
-              </div>
-
-            </div> -->
-
-              <!-- <div class="col-lg-6"> -->
-                <div class="form-group">
-                    <label class="login_label"  for="">User Name</label>
-                  <input type="email" class="form-control  login_input"   name="username" required>
-
-                </div>
-
-
-
-              <!-- <div class="col-lg-6">
-                <div class="form-group">
-                  <div class="form-group">
-                      <label  class="login_label" for="">Phone Number</label>
-                    <input type="tel" class="form-control  login_input"   name="phone_number">
-                  </div>
-                </div>
-              </div> -->
-            <!-- </div> -->
-
-            <div class="form-group">
-                <login_label class="login_label" l for="" >Password</label>
-              <input type="password" class="form-control  login_input "   name="password" required>
-
+          <div class="d-flex flex-row align-items-center mb-4 username-margin">
+            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+            <div class="form-outline flex-fill mb-0">
+              <input type="email" id="form3Example3c" class="form-control" name="username" required/>
+              <label class="form-label" for="form3Example3c">Your Username</label>
             </div>
-            <div class="form-group">
-                <label for="" >Confirm Password</label>
-              <input type="password" class="form-control  login_input " name="confirm" required>
+          </div>
 
+          <div class="d-flex flex-row align-items-center mb-4">
+            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+            <div class="form-outline flex-fill mb-0">
+              <input type="password" id="form3Example4c" class="form-control" name="password" required/>
+              <label class="form-label" for="form3Example4c">Password</label>
             </div>
-            <div class="privacy">
-              <p><input type="checkbox" name="checked">  I Accept<a href="#" data-toggle="modal" data-target="#exampleModal"> Privacy Policy
-            </p></a>
+          </div>
 
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Privacy Policy</h5>
-                  <button type="button" class="close btn-primary" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <div class="d-flex flex-row align-items-center mb-4">
+            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+            <div class="form-outline flex-fill mb-0">
+              <input type="password" id="form3Example4cd" class="form-control" name="confirm" required/>
+              <label class="form-label" for="form3Example4cd">Repeat your password</label>
+            </div>
+          </div>
+          <div class="privacy">
+            <p><input type="checkbox" name="checked"> I agree all statements in <a href="#!" data-toggle="modal" data-target="#exampleModal">Terms & Conditions</a>
+          </p></a>
 
-                  <p>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Terms & Conditions</h5>
+                <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
 
-                  <p><a href="admin_signin">Admin</a></p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-                </div>
+                <p><a href="admin_signin">Admin</a></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
               </div>
             </div>
-          </div>
-          </div>
-
-
-          <div class="login_submit">
-            <button type="submit" class="btn btn-lg btn-success  login_button" name="button">Sign Up</button>
-          </div>
-          </form><br>
-          </div>
-        <div class="col-lg-5">
-          <h5 class="or">Or</h5>
-          <div class="card google_card">
-
-            <div class="card-body">
-              <a class="btn google_card1 " href="/auth/google" role="button">  <i class="fab fa-google"></i>   <b class="google-signup">Sign Up with Google</b></a>
-
-
-            </div>
-          </div>
-          <div class="login_submit">
-            <p>Already Have An Account?  <a  href="/login">Log In</a></p>
           </div>
         </div>
-    </div>
-  </div>
+        </div>
 
+
+        <div class="login_submit">
+          <button type="submit" class="btn btn-primary  login_button" name="button">Sign Up</button>
+        </div>
+        </form><br>
+        </div>
+      <div class="col-lg-5">
+
+        <div>
+          <img src="images/authentication.svg" alt="">
+        </div>
+        <div class="google-button-margin">
+          <i class="fab fa-google-plus-square" style="color: #3cba54;"></i>
+          <button type="submit" class="btn btn-primary google-button"> <a href="/auth/google" style="color: aliceblue;">Sign with Google</a></button>
+        </div>
+        <div class="login_submit">
+          <p>Already Have An Account?  <a  href="/login">Log In</a></p>
+        </div>
+      </div>
+  </div>
 </div>
 
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
 </html>

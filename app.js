@@ -1079,7 +1079,7 @@
           res.redirect("/signup");
         } else if (req.body.password === req.body.confirm) {
           var g = req.body.checked;
-          // console.log(g);
+          // console.log(ans);
           if (g != 'on') {
             req.flash("msg", "Please Confirm The Privacy and policy section");
             return res.redirect("/signup");

@@ -346,11 +346,15 @@ body{
 /*notice ends*/
 
 /* login or signup start  */
+.bg-zig-zag{
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='100' viewBox='0 0 600 100'%3E%3Cg stroke='%23FFF' stroke-width='0' stroke-miterlimit='10' %3E%3Ccircle fill='%23037B79' cx='0' cy='0' r='50'/%3E%3Ccircle fill='%2392DEBA' cx='100' cy='0' r='50'/%3E%3Ccircle fill='%23FFFFD8' cx='200' cy='0' r='50'/%3E%3Ccircle fill='%23CAF2FF' cx='300' cy='0' r='50'/%3E%3Ccircle fill='%236FCCFF' cx='400' cy='0' r='50'/%3E%3Ccircle fill='%23006EB4' cx='500' cy='0' r='50'/%3E%3Ccircle fill='%23037B79' cx='600' cy='0' r='50'/%3E%3Ccircle cx='-50' cy='50' r='50'/%3E%3Ccircle fill='%2353ac9a' cx='50' cy='50' r='50'/%3E%3Ccircle fill='%23ceefc1' cx='150' cy='50' r='50'/%3E%3Ccircle fill='%23ffffff' cx='250' cy='50' r='50'/%3E%3Ccircle fill='%239de0fe' cx='350' cy='50' r='50'/%3E%3Ccircle fill='%233e9cda' cx='450' cy='50' r='50'/%3E%3Ccircle fill='%2300789c' cx='550' cy='50' r='50'/%3E%3Ccircle cx='650' cy='50' r='50'/%3E%3Ccircle fill='%23037B79' cx='0' cy='100' r='50'/%3E%3Ccircle fill='%2392DEBA' cx='100' cy='100' r='50'/%3E%3Ccircle fill='%23FFFFD8' cx='200' cy='100' r='50'/%3E%3Ccircle fill='%23CAF2FF' cx='300' cy='100' r='50'/%3E%3Ccircle fill='%236FCCFF' cx='400' cy='100' r='50'/%3E%3Ccircle fill='%23006EB4' cx='500' cy='100' r='50'/%3E%3Ccircle fill='%23037B79' cx='600' cy='100' r='50'/%3E%3Ccircle cx='50' cy='150' r='50'/%3E%3Ccircle cx='150' cy='150' r='50'/%3E%3Ccircle cx='250' cy='150' r='50'/%3E%3Ccircle cx='350' cy='150' r='50'/%3E%3Ccircle cx='450' cy='150' r='50'/%3E%3Ccircle cx='550' cy='150' r='50'/%3E%3C/g%3E%3C/svg%3E");
+}
+
 .admin_signin_body{
   background-image: linear-gradient(to bottom right,blue, violet);
 }
 .login_body{
-  background-color: #fefae0;
   margin-top: 5rem;
 }
 
@@ -362,30 +366,22 @@ body{
   color: red;
 }
 
-.icon_logo{
-  width: 15%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-
-}
 .login_card_header{
-  font-family: 'Train One', cursive;
   text-align: center;
 }
 .signup_card_header{
-  font-family: 'Train One', cursive;
   text-align: center;
+  margin-top: 1rem;
+  color: blue;
 }
 .login_card{
   width: 50%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1.2rem;
+  border-radius: 40px
 }
-.login_body{
-  font-size: 1.5rem;
-}
+
 .login_input{
   margin: 1rem;
   width: 80%;
@@ -399,6 +395,7 @@ body{
 }
 .login_button{
   margin-bottom: 2rem;
+  height: 2.5rem;
 }
 .privacy{
   text-align: center;
@@ -409,24 +406,19 @@ body{
   border-right: 1px solid black;
   border-bottom: 1px solid black;
 }
-.google_card{
-margin-top: 5rem;
-margin-bottom: 1rem;
-
+.google-button{
+  height: 2.5rem;
+  width: auto;
 }
-.google_card1{
-  background-color:#DB4437;
+.google-button-margin{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
-.google-signup{
-   font-size: 1.1rem;
-   margin: 0;
-   padding: 0;
+.username-margin{
+  margin-top: 2rem;
 }
-.google-login{
-    font-size: 1.5rem;
-}
-.or{
-  text-align: center;
+.login-margin{
+  margin-top: 1rem;
 }
 /* login or signup end */
 .afterlogin{
