@@ -32,7 +32,7 @@
       <h2 class="login_card_header">Log In To Your Admin Account</h2>
     </div>
     <% if(error.length>0){%>
-    
+
       <div class="alert alert-danger" role="alert" >
         <%=error%>
       </div>
@@ -41,15 +41,15 @@
     <div class="card-body row">
 
       <!-- <div class="col-lg-6 first_col"> -->
-        <form class="" action="/admin_signin" method="POST">
+        <form class="admin_form" action="/admin_signin" method="POST">
           <div class="form-group">
-            <label class="login_label"for="exampleInputEmail1"><i class="fas fa-user"></i>   User Name</label>
-            <input type="email" class="form-control  login_input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="adminname">
+            <label class="admin_login_label"for="exampleInputEmail1"><i class="fas fa-user"></i>   User Name</label>
+            <input type="email" class="<%=(invalid.in_admin_username)?'form-control login_input invalid_input':'form-control login_input'%>" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="adminname"  value="<%=oldinput.admin_email %>" required>
 
           </div>
           <div class="form-group">
-            <label class="login_label"for="exampleInputEmail1"><i class="fas fa-lock"></i>  Password</label>
-            <input type="password" class="form-control login_input" id="exampleInputPassword" aria-describedby="emailHelp" placeholder="Enter Password" name="adminpassword">
+            <label class="admin_login_label"for="exampleInputEmail1"><i class="fas fa-lock"></i>  Password</label>
+            <input type="password" class="<%=(invalid.in_admin_password)?'form-control login_input invalid_input':'form-control login_input'%>" id="exampleInputPassword" aria-describedby="emailHelp" placeholder="Enter Password" name="adminpassword" value="<%=oldinput.admin_password%>" required>
 
           </div>
 

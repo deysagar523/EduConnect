@@ -190,7 +190,11 @@
       });
       if (!user) {
         return cb(null, false, {
-          error: "This email is not registered"
+          error: "This email is not registered",
+          invalid:{
+            in_username:true,
+            in_password:false
+          }
         })
       }
 
@@ -202,7 +206,11 @@
           return cb(null, user);
         else {
           return cb(null, false, {
-            error: "Incorrect password"
+            error: "Incorrect password",
+            invalid:{
+              in_username:false,
+              in_password:true
+            }
           });
         }
       });
@@ -222,7 +230,11 @@
       });
       if (!admin) {
         return cb(null, false, {
-          error: "This email is not registered for admin"
+          error: "This email is not registered for admin",
+          invalid:{
+            in_admin_username:true,
+            in_admin_password:false
+          }
         })
       }
       // checking the password is correct or not in the time of login
@@ -233,7 +245,11 @@
           return cb(null, admin);
         else {
           return cb(null, false, {
-            error: "Incorrect password"
+            error: "Incorrect password",
+            invalid:{
+              in_admin_username:false,
+              in_admin_password:true
+            }
           });
         }
       });
@@ -559,7 +575,16 @@
 
     res.locals.title = "Login";
     res.render("login", {
-      error: req.flash("info")
+      error: req.flash("info"),
+      oldinput: {
+        email: '',
+        password: ''
+      },
+      invalid:{
+        in_username:false,
+        in_password:false
+      }
+
     });
 
 
@@ -570,7 +595,17 @@
   app.get("/signup", function(req, res) {
     res.locals.title = "Signup";
     res.render("signup", {
-      msg: req.flash("msg")
+      msg: req.flash("msg"),
+      oldinput: {
+        email: "",
+        password: "",
+        confirmPassword: "",
+      },
+      invalid:{
+        in_email:false,
+        in_password:false,
+        in_conpass:false
+      }
     });
   });
 
@@ -622,7 +657,15 @@
     // res.locals.title = "About Us";
 
     res.render("admin_signin", {
-      error: req.flash("inf")
+      error: req.flash("inf"),
+      oldinput: {
+        admin_email: '',
+        admin_password: ''
+      },
+      invalid:{
+        in_admin_username:false,
+        in_admin_password:false
+      }
     });
   });
 
@@ -743,8 +786,18 @@
 
       if (!admin) {
         req.flash('inf', info.error);
-        console.log("no");
-        return res.redirect('/admin_signin');
+
+        return res.render("admin_signin", {
+          error: req.flash("inf"),
+          oldinput: {
+            admin_email: req.body.adminname,
+            admin_password: req.body.adminpassword
+          },
+          invalid:{
+            in_admin_username:info.invalid.in_admin_username,
+            in_admin_password:info.invalid.in_admin_password
+          }
+        });
       }
 
       req.logIn(admin, function(err) {
@@ -1009,10 +1062,10 @@
         } else {
           function compare(a, b) {
 
-            if (a.studentDetails.roll < b.studentDetails.roll ) {
+            if (a.studentDetails.roll < b.studentDetails.roll) {
               return -1;
             }
-            if (a.studentDetails.roll > b.studentDetails.roll ) {
+            if (a.studentDetails.roll > b.studentDetails.roll) {
               return 1;
             }
 
@@ -1068,21 +1121,69 @@
         if (ans) {
 
           req.flash("msg", "This Username is already taken");
-          res.redirect("/signup");
+          res.render("signup", {
+            msg: req.flash("msg"),
+            oldinput: {
+              email: req.body.username,
+              password: req.body.password,
+              confirmPassword: req.body.confirm,
+            },
+            invalid:{
+              in_email:true,
+              in_password:false,
+              in_conpass:false
+            }
+          });
         } else if (req.body.password.length < 3 || req.body.confirm.length < 3) {
 
           req.flash("msg", "Password must be of 3 characters");
-          res.redirect("/signup");
+          res.render("signup", {
+            msg: req.flash("msg"),
+            oldinput: {
+              email: req.body.username,
+              password: req.body.password,
+              confirmPassword: req.body.confirm,
+            },
+            invalid:{
+              in_email:false,
+              in_password:true,
+              in_conpass:false
+            }
+          });
         } else if (req.body.password != req.body.confirm) {
 
           req.flash("msg", "Password is not matched !Type password correctly");
-          res.redirect("/signup");
+          res.render("signup", {
+            msg: req.flash("msg"),
+            oldinput: {
+              email: req.body.username,
+              password: req.body.password,
+              confirmPassword: req.body.confirm,
+            },
+            invalid:{
+              in_email:false,
+              in_password:false,
+              in_conpass:true
+            }
+          });
         } else if (req.body.password === req.body.confirm) {
           var g = req.body.checked;
           // console.log(ans);
           if (g != 'on') {
             req.flash("msg", "Please Confirm The Privacy and policy section");
-            return res.redirect("/signup");
+            res.render("signup", {
+              msg: req.flash("msg"),
+              oldinput: {
+                email: req.body.username,
+                password: req.body.password,
+                confirmPassword: req.body.confirm,
+              },
+              invalid:{
+                in_email:false,
+                in_password:false,
+                in_conpass:false
+              }
+            });
           }
 
           bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
@@ -1123,7 +1224,21 @@
 
       if (!user) {
         req.flash('info', info.error);
-        return res.redirect('/login');
+        return res.render("login", {
+          error: req.flash("info"),
+          oldinput: {
+            email: req.body.username,
+            password: req.body.password
+          },
+          invalid:{
+            in_username:info.invalid.in_username,
+            in_password:info.invalid.in_password
+          }
+
+
+
+
+        });
       }
       if (req.cookies.id) {
         res.clearCookie('id');

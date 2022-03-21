@@ -346,6 +346,26 @@ body{
 /*notice ends*/
 
 /* login or signup start  */
+
+
+/*admin login style */
+
+.admin_signin_body{
+  text-align: center;
+}
+.icon_logo{
+  width: 20%;
+}
+.admin_form{
+  text-align: left;
+}
+.admin_login_label{
+  font-weight: bold;
+  font-style: oblique;
+  font-size: 20px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .bg-zig-zag{
   margin-top: 5rem;
   background-color: #ffffff;
@@ -423,6 +443,10 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 }
 .login-card-border{
   border-right: 1px solid black;
+}
+
+.invalid_input{
+  border-color: red;
 }
 
 /* login or signup end */

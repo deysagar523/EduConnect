@@ -14,9 +14,8 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
   <link rel="stylesheet" href="css/bootstrap-social.css">
   <link rel="stylesheet" href="css/styles.css">
-  <script src=
-"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
- </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+  </script>
 </head>
 
 
@@ -27,10 +26,12 @@
       <h2 class="signup_card_header"> <b><u> Make Your Account </u></b></h2>
     </div>
     <% if(msg.length>0){%>
-      <div class="alert alert-danger" role="alert" >
-        <%=msg%>
-      </div>
-   <%  }  %>
+    <div class="alert alert-danger" role="alert">
+      <%=msg%>
+    </div>
+    <%  }  %>
+
+
     <div class="card-body row">
 
       <div class="col-lg-7 first_col">
@@ -39,7 +40,7 @@
           <div class="d-flex flex-row align-items-center mb-4 username-margin">
             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
             <div class="form-outline flex-fill mb-0">
-              <input type="email" id="form3Example3c" class="form-control" name="username" required/>
+              <input  type="email" id="form3Example3c" class="<%=(invalid.in_email)?'form-control invalid_input':'form-control'%>" name="username" value="<%= oldinput.email %>" required />
               <label class="form-label" for="form3Example3c">Your Username</label>
             </div>
           </div>
@@ -47,7 +48,7 @@
           <div class="d-flex flex-row align-items-center mb-4">
             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
             <div class="form-outline flex-fill mb-0">
-              <input type="password" id="form3Example4c" class="form-control" name="password" required/>
+              <input type="password" id="form3Example4c" class="<%=(invalid.in_password)?'form-control invalid_input':'form-control'%>" name="password" value="<%= oldinput.password %>" required />
               <label class="form-label" for="form3Example4c">Password</label>
             </div>
           </div>
@@ -55,46 +56,48 @@
           <div class="d-flex flex-row align-items-center mb-4">
             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
             <div class="form-outline flex-fill mb-0">
-              <input type="password" id="form3Example4cd" class="form-control" name="confirm" required/>
+              <input type="password" id="form3Example4cd" class="<%=(invalid.in_conpass)?'form-control invalid_input':'form-control'%>" name="confirm" value="<%= oldinput.confirmPassword %>" required />
               <label class="form-label" for="form3Example4cd">Repeat your password</label>
             </div>
           </div>
           <div class="privacy">
             <p><input type="checkbox" name="checked"> I agree all statements in <a href="#!" data-toggle="modal" data-target="#exampleModal">Terms & Conditions</a>
-          </p></a>
+            </p></a>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Terms & Conditions</h5>
-                <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Terms & Conditions</h5>
+                    <button type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                <p>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
 
-                <p><a href="admin_signin">Admin</a></p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                    <p><a href="admin_signin">Admin</a></p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        </div>
 
 
-        <div class="login_submit">
-          <button type="submit" class="btn btn-primary  login_button" name="button">Sign Up</button>
-        </div>
+          <div class="login_submit">
+            <button type="submit" class="btn btn-primary  login_button" name="button">Sign Up</button>
+          </div>
         </form><br>
-        </div>
+      </div>
       <div class="col-lg-5">
 
         <div>
@@ -105,16 +108,16 @@
           <button type="submit" class="btn btn-primary google-button"> <a href="/auth/google" style="color: aliceblue;">Sign with Google</a></button>
         </div>
         <div class="login_submit">
-          <p>Already Have An Account?  <a  href="/login">Log In</a></p>
+          <p>Already Have An Account? <a href="/login">Log In</a></p>
         </div>
       </div>
+    </div>
   </div>
-</div>
 
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
 </html>
