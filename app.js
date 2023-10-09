@@ -172,25 +172,6 @@ const createAdmin = async () => {
   }
 };
 
-// username= "hironmoychowdhury7@gmail.com",
-// password="this@690",
-//
-//     bcrypt.hash(password, saltRounds, function(err, hash) {
-//       // Store hash in your  DB.
-//
-//       const admin  = new Admin({
-//         username: username,
-//         password: hash
-//       });
-//       admin.save(function(err) {
-//         if (err)
-//           console.log(err);
-//         else
-//         console.log("updated");
-//       });
-//
-//     });
-
 //******CONFIGURE PASSPORT MIDDDLEWARE********//
 
 const customFields = {
